@@ -30,4 +30,19 @@ public class UserService {
         System.out.println("Login failed");
         return null;
     }
+
+    public void registerDefaultUsers() {
+        users.add(new Advertiser("admin", "1234"));
+        users.add(new Publisher("pub", "1234"));
+    }
+
+    public User login(String username, String password) {
+        for (User u : users) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
 }
